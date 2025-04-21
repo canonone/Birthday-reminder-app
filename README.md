@@ -161,7 +161,7 @@ To test in real-time:
 2. Fill out the form:
    - 🧑 Name: e.g., _Jane Doe_
    - 📧 Email: e.g., *jane@example.com*
-   - 🎂 DOB: e.g., _1998-04-21_
+   - 🎂 DOB: e.g., _21/03/2002_
 3. Submit ✔️
 4. Success or error messages will appear instantly.
 5. On birthdays, the system sends out:
