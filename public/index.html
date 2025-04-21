@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Reminder</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Source+Sans+Pro:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Birthday Reminder</h1>
+      <form id="userForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="dateOfBirth">Date of Birth</label>
+          <input type="date" id="dateOfBirth" name="dateOfBirth" required />
+        </div>
+        <button type="submit">Submit</button>
+        <p id="message" class="message"></p>
+        <p id="error" class="error"></p>
+      </form>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>
