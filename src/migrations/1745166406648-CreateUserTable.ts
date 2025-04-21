@@ -1,9 +1,7 @@
-import { MigrationInterface, QueryRunner } from "typeorm";
-
-// Changed class name to include timestamp
+import { MigrationInterface, QueryRunner } from 'typeorm';
 export class CreateUserTables1651234567890 implements MigrationInterface {
-    public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`
             CREATE TABLE "user" (
                 "id" SERIAL PRIMARY KEY,
                 "username" VARCHAR(100) NOT NULL,
@@ -13,9 +11,9 @@ export class CreateUserTables1651234567890 implements MigrationInterface {
                 "updatedAt" TIMESTAMP NOT NULL DEFAULT now()
             )
         `);
-    }
+  }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`DROP TABLE "user"`);
-    }
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`DROP TABLE "user"`);
+  }
 }
