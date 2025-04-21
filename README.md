@@ -33,26 +33,26 @@ SMTP (Gmail + App Passwords)
 
 ## 🗂 Project Structure
 
-\`\`\`bash
+```
 birthday-reminder-app/
-├── public/              # Frontend files
-│   ├── index.html       # UI form
-│   ├── styles.css       # Styling
-│   └── script.js        # Form logic
-├── src/                 # Backend - NestJS
-│   └── users/
-│       ├── entities/            # user.entity.ts
-│       ├── migrations/          # CreateUserTable.ts
-│       ├── dtos/                # create-user.dto.ts
-│       ├── users.controller.ts  # Routes
-│       ├── users.service.ts     # Logic & Cron job
-│       ├── email.service.ts     # Email handler
-│       └── users.module.ts
-├── .env                # Environment config
-├── package.json        # Project manifest
-├── tsconfig.json       # TypeScript config
-└── README.md           # This file 😎
-\`\`\`
+├── public/ # Frontend files
+│ ├── index.html # UI form
+│ ├── styles.css # Styling
+│ └── script.js # Form logic
+├── src/ # Backend - NestJS
+│ └── users/
+│ ├── entities/ # user.entity.ts
+│ ├── migrations/ # CreateUserTable.ts
+│ ├── dtos/ # create-user.dto.ts
+│ ├── users.controller.ts # Routes
+│ ├── users.service.ts # Logic & Cron job
+│ ├── email.service.ts # Email handler
+│ └── users.module.ts
+├── .env # Environment config
+├── package.json # Project manifest
+├── tsconfig.json # TypeScript config
+└── README.md # This file 😎
+```
 
 ---
 
@@ -69,22 +69,25 @@ birthday-reminder-app/
 
 ### 1. Clone the repo
 
-\`\`\`bash
+```
+bash
 git clone https://github.com/canonone/Birthday-reminder-app.git
 cd Birthday-reminder-app
-\`\`\`
+```
 
 ### 2. Install dependencies
 
-\`\`\`bash
+```
+bash
 npm install
-\`\`\`
+```
 
 ### 3. Set up environment variables
 
-\`\`\`bash
+```
+bash
 cp .env.example .env
-\`\`\`
+```
 
 Update \`.env\` with your DB credentials and email config.
 
@@ -92,35 +95,39 @@ Update \`.env\` with your DB credentials and email config.
 
 ### 4. Create PostgreSQL Database
 
-\`\`\`bash
+```
+bash
 psql -U <your-username>
 CREATE DATABASE birthday_reminder;
 \q
-\`\`\`
+```
 
 ---
 
 ### 5. Run migrations
 
-\`\`\`bash
+```
+bash
 npm run migration:run
-\`\`\`
+```
 
 Confirm table creation:
 
-\`\`\`bash
+```
+bash
 psql -U <your-username> -d birthday_reminder
 \dt
-SELECT * FROM "user";
-\`\`\`
+SELECT \* FROM "user";
+```
 
 ---
 
 ### 6. Start the app
 
-\`\`\`bash
+```
+bash
 npm run start:dev
-\`\`\`
+```
 
 - API runs at [http://localhost:3000](http://localhost:3000)
 - Frontend form loads from the \`/public\` directory
@@ -133,13 +140,15 @@ By default, emails are sent at **7 AM daily**.
 To test in real-time:
 
 1. Edit \`users.service.ts\`:
-   \`\`\`ts
-   @Cron('* * * * *') // Runs every minute
-   \`\`\`
+   ```
+   ts
+   @Cron('\* \* \* \* \*') // Runs every minute
+   ```
 2. Restart the server:
-   \`\`\`bash
+   ```
+   bash
    npm run start:dev
-   \`\`\`
+   ```
 3. Add a test user with today’s date as birthday.
 4. Check your inbox (and spam).
 5. Revert cron to \`CronExpression.EVERY_DAY_AT_7AM\`.
@@ -150,13 +159,13 @@ To test in real-time:
 
 1. Visit [http://localhost:3000](http://localhost:3000)
 2. Fill out the form:
-   - 🧑 Name: e.g., *Jane Doe*
+   - 🧑 Name: e.g., _Jane Doe_
    - 📧 Email: e.g., *jane@example.com*
-   - 🎂 DOB: e.g., *1998-04-21*
+   - 🎂 DOB: e.g., _1998-04-21_
 3. Submit ✔️
 4. Success or error messages will appear instantly.
 5. On birthdays, the system sends out:
-   - **Subject**: *Happy Birthday, Jane!*
+   - **Subject**: _Happy Birthday, Jane!_
    - **Body**: Beautifully formatted HTML template.
 
 ---
@@ -165,19 +174,25 @@ To test in real-time:
 
 Pull requests are welcome! Here's how:
 
-\`\`\`bash
+```bash
+
 # Fork the repo
+
 # Create a new branch
+
 git checkout -b feature/amazing-feature
 
 # Commit your changes
+
 git commit -m "✨ Add amazing feature"
 
 # Push it
+
 git push origin feature/amazing-feature
 
 # Create a pull request 🚀
-\`\`\`
+
+```
 
 ---
 
