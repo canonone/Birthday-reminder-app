@@ -1,9 +1,9 @@
 import { DataSource } from 'typeorm';
-import * as dotenv from 'dotenv';
+import { config } from 'dotenv';
 
-dotenv.config();
+config({ path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env' });
 
-export const AppDataSource = new DataSource({
+const dataSource = new DataSource({
   type: 'postgres',
   host: process.env.DB_HOST,
   port: parseInt(process.env.DB_PORT || '5432', 10),
@@ -16,3 +16,12 @@ export const AppDataSource = new DataSource({
   migrationsTableName: 'migrations',
   metadataTableName: 'typeorm_metadata',
 });
+
+export async function initializeDataSource() {
+  if (!dataSource.isInitialized) {
+    await dataSource.initialize();
+  }
+  return dataSource;
+}
+
+export default dataSource;
