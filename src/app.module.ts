@@ -3,9 +3,6 @@ import { UsersModule } from './users/users.modules';
 import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
-  imports: [
-    ScheduleModule.forRoot(),
-    UsersModule,
-  ],
+  imports: [ScheduleModule.forRoot(), UsersModule],
 })
 export class AppModule {}
